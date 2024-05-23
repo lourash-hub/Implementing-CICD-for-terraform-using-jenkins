@@ -372,3 +372,50 @@ Jenkins needs to know how to connect to Github, otherwise in real world cases wh
 ```bash
 - In Github, navigate to your profile -> Click on "Settings" -> then scroll down to -> "Developer Settings"
 ```
+Generate an access token
+
+![Image](./Images/github_token.png)
+
+![Image](./Images/token.png)
+
+Copy the access token and save in a notepad for use later
+
+In Jenkins, navigate to "Manage Jenkins" -> Click on "Credentials"
+Click on the arrow next to "global" and select "Add credentials"
+
+Select username and password. Use the Access token generated earlier as your password, and specify the anything descriptive as your ID
+
+![Image](./Images/jenkins_token.png)
+
+In the credentials section, you will be able to see the created credential
+
+
+Create a second credential for AWS secret and access key. If you have installed the AWS credentials plugin, you will see the "AWS Credentials" Kind as shown below. Simply add the AWS secret and access key generated from AWS console. 
+
+
+1.  Set Up a Jenkins Multibranch Pipeline:
+
+From the Jenkins dashboard, click on "New Item"
+
+![Image](./Images/pipeline.png)
+
+Give it a name and description
+
+Select the type of source of the code and the Jenkinsfile
+
+![Image](./Images/pipeline_01.png)
+
+Select the credentials to be used to connect to Github from Jenkins
+
+Add the repository URL. Ensure you have forked it from https://github.com/darey-devops/terraform-aws- pipeline.git/
+
+![Image](./Images/validate.png)
+
+Leave everything at default and hit save
+
+You will immediately see the scanning of the repository for branches, and the Jenkinsfile
+The terraform-cicd pipeline and main branch scanned
+
+Click on "Build now" for a second run and check the console output
+
+![Image](./Images/stage_view.png)
